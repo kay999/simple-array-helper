@@ -1,0 +1,16 @@
+{
+  "name": "simple-array-helper",
+  "version": "1.0.2",
+  "dependencies": {},
+  "description": "some simple array operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "author": "kay999",
+  "license": "MIT",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^3.2.0"
+  }
+}
