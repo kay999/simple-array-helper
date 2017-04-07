@@ -8,3 +8,6 @@ Some simple array-operations I often need:
 - buildIndex
 - buildIndexUnique
 - intersperse
+- pushAll
+- pushAllUnique
+- pushUnique

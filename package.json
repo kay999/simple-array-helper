@@ -1,11 +1,11 @@
 {
   "name": "simple-array-helper",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "dependencies": {},
   "description": "some simple array operations",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test/test.js"
+    "test": "mocha"
   },
   "author": "kay999",
   "license": "MIT",

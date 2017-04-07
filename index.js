@@ -18,6 +18,37 @@ function from(v) {
 	return [v];
 }
 
+const push = Array.prototype.push;
+
+/**
+ * pushes el to arr if el isn't already in arr
+ * @param arr
+ * @param el
+ */
+function pushUnique(arr, el) {
+	if (arr.indexOf(el) < 0) arr.push(el);
+}
+
+/**
+ * pushes all elements in the array els to arr
+ * @param arr
+ * @param els
+ */
+function pushAll(arr, els) {
+	push.apply(arr, els);
+}
+
+/**
+ * pushes all elements in the array els to arr which aren't already in arr
+ * @param arr
+ * @param els
+ */
+function pushAllUnique(arr, els) {
+	els.forEach(function(el) {
+		if (arr.indexOf(el) < 0) arr.push(el);
+	});
+}
+
 /**
  * appends an element to an object { field:elements }
  * @param obj 	the object
@@ -112,6 +143,9 @@ exports.isArray = is;
 exports.from = from;
 exports.arrayFrom = from;
 exports.mk = from;
+exports.pushUnique = pushUnique;
+exports.pushAll = pushAll;
+exports.pushAllUnique = pushAllUnique;
 exports.append = append;
 exports.appendUnique = appendUnique;
 exports.fromString = fromString;
