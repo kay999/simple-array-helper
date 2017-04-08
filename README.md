@@ -5,6 +5,7 @@ Some simple array-operations I often need:
 - fromString, splitString
 - append
 - appendUnique
+- remove
 - buildIndex
 - buildIndexUnique
 - intersperse

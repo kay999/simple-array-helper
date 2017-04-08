@@ -80,6 +80,29 @@ function appendUnique(obj, field, val) {
 }
 
 /**
+ * removes an element from an index
+ * @param obj 	the object
+ * @param field the field which contains the array
+ * @param val   the value to remove
+ */
+function remove(obj, field, val) {
+	const v = obj[field];
+	if (v) {
+		const index = v.indexOf(val);
+		if (index >= 0) {
+			if (v.length === 1) {
+				delete obj[field];
+			}
+			else {
+				v.splice(index, 1);
+			}
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
  * splits a string by ','. Always returns an array
  * @param str a string
  * @returns {Array} the array. return [] is str is empty, undefined or null
@@ -148,6 +171,7 @@ exports.pushAll = pushAll;
 exports.pushAllUnique = pushAllUnique;
 exports.append = append;
 exports.appendUnique = appendUnique;
+exports.remove = remove;
 exports.fromString = fromString;
 exports.splitString = fromString;
 exports.buildIndex = buildIndex;

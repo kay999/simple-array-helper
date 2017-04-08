@@ -53,6 +53,29 @@ describe('append', function() {
 	});
 });
 
+describe('remove', function() {
+	it('should work', function() {
+		const data = {};
+		A.append(data, 'val1', 1);
+		A.append(data, 'val1', 2);
+		A.append(data, 'val2', 3);
+		A.append(data, 'val2', 4);
+
+		expect(data).to.eql({ val1:[1, 2], val2:[3, 4] });
+
+		expect(A.remove(data, 'val1', 0)).to.be(false);
+		expect(A.remove(data, 'val1', 1)).to.be(true);
+
+		expect(data['val1']).to.eql([2]);
+
+		expect(A.remove(data, 'val1', 1)).to.be(false);
+		expect(A.remove(data, 'val1', 2)).to.be(true);
+
+		expect(data['val1']).to.eql(undefined);
+		expect(data).to.eql({ val2:[3, 4] });
+	});
+});
+
 describe('buildIndex', function() {
 	const data = [{ val:10 }, { val:20 }, { val:20 }];
 
