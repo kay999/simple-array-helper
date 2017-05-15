@@ -25,6 +25,7 @@ describe('mk/from', function() {
 
 describe('intersperse', function() {
 	it('should work', function() {
+		expect(A.intersperse('x', null)).to.eql([]);
 		expect(A.intersperse('x', [])).to.eql([]);
 		expect(A.intersperse('x', [1])).to.eql([1]);
 		expect(A.intersperse('x', [1, 2, 3])).to.eql([1, 'x', 2, 'x', 3]);
@@ -119,6 +120,7 @@ describe('push', function() {
 		const arr = [2];
 		A.pushAllUnique(arr, [1, 2, 3, 3]);
 		A.pushAllUnique(arr, [1, 2, 3]);
+		A.pushAllUnique(arr, null);
 		expect(arr).eql([2, 1, 3]);
 	});
 
@@ -126,6 +128,7 @@ describe('push', function() {
 		const arr = [2];
 		A.pushAll(arr, [1, 2, 3, 3]);
 		A.pushAll(arr, []);
+		A.pushAll(arr, null);
 		expect(arr).eql([2, 1, 2, 3, 3]);
 	});
 });

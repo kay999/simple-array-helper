@@ -1,6 +1,6 @@
 {
   "name": "simple-array-helper",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "dependencies": {},
   "description": "some simple array operations",
   "main": "index.js",

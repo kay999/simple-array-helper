@@ -35,7 +35,7 @@ function pushUnique(arr, el) {
  * @param els
  */
 function pushAll(arr, els) {
-	push.apply(arr, els);
+	if (els) push.apply(arr, els);
 }
 
 /**
@@ -44,7 +44,7 @@ function pushAll(arr, els) {
  * @param els
  */
 function pushAllUnique(arr, els) {
-	els.forEach(function(el) {
+	if (els) els.forEach(function(el) {
 		if (arr.indexOf(el) < 0) arr.push(el);
 	});
 }
@@ -153,7 +153,7 @@ function buildIndexUnique(array, field) {
  */
 function intersperse(insert, arr) {
 	const res = [];
-	arr.forEach(function (v, i) {
+	if (arr) arr.forEach(function (v, i) {
 		if (i > 0) res.push(insert);
 		res.push(v);
 	});
