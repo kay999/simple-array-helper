@@ -26,7 +26,11 @@ const push = Array.prototype.push;
  * @param el
  */
 function pushUnique(arr, el) {
-	if (arr.indexOf(el) < 0) arr.push(el);
+	if (arr.indexOf(el) < 0) {
+		arr.push(el);
+		return true;
+	}
+	return false;
 }
 
 /**
@@ -160,6 +164,19 @@ function intersperse(insert, arr) {
 	return res;
 }
 
+/**
+ * get obj[field], if it not exists it creates it with an value of {}
+ * @param obj
+ * @param field
+ * @returns {*}
+ */
+function ensure(obj, field) {
+	const f = obj[field];
+	if (!f) {
+		return obj[field] = {};
+	}
+	return f;
+}
 
 exports.is = is;
 exports.isArray = is;
@@ -177,3 +194,4 @@ exports.splitString = fromString;
 exports.buildIndex = buildIndex;
 exports.buildIndexUnique = buildIndexUnique;
 exports.intersperse = intersperse;
+exports.ensure = ensure;

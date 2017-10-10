@@ -1,4 +1,4 @@
-Some simple array-operations I often need:
+Some simple array/obj-operations I often need:
 
 - is, isArray
 - from, arrayFrom
@@ -12,3 +12,4 @@ Some simple array-operations I often need:
 - pushAll
 - pushAllUnique
 - pushUnique
+- ensure

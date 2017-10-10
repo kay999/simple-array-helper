@@ -132,3 +132,18 @@ describe('push', function() {
 		expect(arr).eql([2, 1, 2, 3, 3]);
 	});
 });
+
+describe('ensure', function() {
+	it('ensure should work', function() {
+		const v = { b:{ v:10 } };
+
+		A.ensure(v, 'a').x = 10;
+		expect(v).eql({ b:{v:10}, a: { x: 10 }});
+		
+		A.ensure(v, 'b').x = 11;
+		expect(v).eql({ b:{v:10, x: 11}, a: { x: 10 }});
+
+		delete A.ensure(v, 'a').x;
+		expect(v).eql({ b:{v:10, x: 11}, a: { }});
+	});
+});
