@@ -225,6 +225,11 @@ function pairs(arr, wrap) {
 	return res;
 }
 
+/**
+ * returns null if array is empty or null, otherwise it returns the array
+ * @param arr
+ * @returns {*}
+ */
 function nullForEmpty(arr) {
 	if (arr == null) return null;
 	if (arr.length) return arr;
