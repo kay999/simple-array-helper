@@ -13,3 +13,7 @@ Some simple array/obj-operations I often need:
 - pushAllUnique
 - pushUnique
 - ensure
+- nullForEmpty
+- pairs
+- pairsWrap
+- removeFirst

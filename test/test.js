@@ -147,3 +147,26 @@ describe('ensure', function() {
 		expect(v).eql({ b:{v:10, x: 11}, a: { }});
 	});
 });
+
+describe('pairs', function() {
+	it('pairs should work', function() {
+		const v = [1, 2, 3];
+
+		expect(A.pairs(null)).eql([]);
+		expect(A.pairs(undefined)).eql([]);
+		expect(A.pairs(v)).eql([[1, 2], [2, 3]]);
+		expect(A.pairsWrap(v)).eql([[1, 2], [2, 3], [3, 1]]);
+
+		const e = [];
+		expect(A.pairs(e)).eql([]);
+	});
+});
+
+describe('nullForEmpty', function() {
+	it('nullForEmpty should work', function() {
+		expect(A.nullForEmpty(null)).eql(null);
+		expect(A.nullForEmpty([])).eql(null);
+		expect(A.nullForEmpty([1])).eql([1]);
+	});
+});
+

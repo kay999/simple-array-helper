@@ -178,6 +178,64 @@ function ensure(obj, field) {
 	return f;
 }
 
+/**
+ * remove ther first element from an array (by identity)
+ * @param arr
+ * @param el
+ * @returns {boolean}
+ */
+function removeFirst(arr, el) {
+	const index = arr.indexOf(el);
+	if (index >= 0) {
+		arr.splice(index, 1);
+		return true;
+	}
+	return false;
+}
+
+/**
+ * remove all elements from arr (by identity)
+ * @param arr
+ * @param el
+ */
+function removeAll(arr, el) {
+	while(removeFirst(arr, el)) {}
+}
+
+/**
+ * create an array of all pairs in arr
+ * [a, b, c] => [[a, b], [b, c]]                // without 'wrap'
+ * [a, b, c] => [[a, b], [b, c], [c, a]         // with 'wrap'
+ * @param arr [a, b, c]
+ * @param wrap also adds a last "wrap-around" pair [last, first]
+ */
+function pairs(arr, wrap) {
+	if (!arr) return [];
+	const res = [];
+	var prev;
+	var first = true;
+	arr.forEach(function(el) {
+		if (first) first = false;
+		else res.push([prev, el]);
+		prev = el;
+	});
+	if (wrap) {
+		res.push([prev, arr[0]]);
+	}
+	return res;
+}
+
+function nullForEmpty(arr) {
+	if (arr == null) return null;
+	if (arr.length) return arr;
+	return null;
+}
+
+exports.nullForEmpty = nullForEmpty;
+exports.pairs = pairs;
+exports.pairsWrap = function(arr) { return pairs(arr, true) };
+exports.removeFirst = removeFirst;
+exports.removeAll = removeAll;
 exports.is = is;
 exports.isArray = is;
 exports.from = from;
