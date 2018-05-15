@@ -54,6 +54,19 @@ describe('append', function() {
 	});
 });
 
+describe('prepend', function() {
+	it('should work', function() {
+		const data = {};
+		expect(data).to.eql({});
+
+		A.prepend(data, 'vals', 1);
+		expect(data).to.eql({ vals:[1] });
+
+		A.prepend(data, 'vals', 2);
+		expect(data).to.eql({ vals:[2, 1] });
+	});
+});
+
 describe('remove', function() {
 	it('should work', function() {
 		const data = {};
@@ -167,6 +180,25 @@ describe('nullForEmpty', function() {
 		expect(A.nullForEmpty(null)).eql(null);
 		expect(A.nullForEmpty([])).eql(null);
 		expect(A.nullForEmpty([1])).eql([1]);
+	});
+});
+
+describe('first', function() {
+	it('first should work', function() {
+		expect(A.first(null)).eql(undefined);
+		expect(A.first()).eql(undefined);
+		expect(A.first([])).eql(undefined);
+		expect(A.first([1])).eql(1);
+		expect(A.first([1, 3, 4])).eql(1);
+	});
+});
+
+describe('last', function() {
+	it('last should work', function() {
+		expect(A.last(null)).eql(undefined);
+		expect(A.last([])).eql(undefined);
+		expect(A.last([1])).eql(1);
+		expect(A.last([1, 3, 4])).eql(4);
 	});
 });
 

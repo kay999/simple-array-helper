@@ -5,6 +5,7 @@ Some simple array/obj-operations I often need:
 - fromString, splitString
 - append
 - appendUnique
+- prepend
 - remove
 - buildIndex
 - buildIndexUnique
@@ -17,3 +18,5 @@ Some simple array/obj-operations I often need:
 - pairs
 - pairsWrap
 - removeFirst
+- first
+- last

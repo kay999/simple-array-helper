@@ -84,6 +84,18 @@ function appendUnique(obj, field, val) {
 }
 
 /**
+ * prepends an element to an object { field:elements }
+ * @param obj 	the object
+ * @param field the field which contains the array
+ * @param val   the new value
+ */
+function prepend(obj, field, val) {
+	const v = obj[field];
+	if (v) v.unshift(val);
+	else obj[field] = [val];
+}
+
+/**
  * removes an element from an index
  * @param obj 	the object
  * @param field the field which contains the array
@@ -236,6 +248,16 @@ function nullForEmpty(arr) {
 	return null;
 }
 
+function first(arr) {
+	if (arr == null) return undefined;
+	return arr[0];
+}
+
+function last(arr) {
+	if (arr == null || !arr.length) return undefined;
+	return arr[arr.length-1];
+}
+
 exports.nullForEmpty = nullForEmpty;
 exports.pairs = pairs;
 exports.pairsWrap = function(arr) { return pairs(arr, true) };
@@ -251,6 +273,7 @@ exports.pushAll = pushAll;
 exports.pushAllUnique = pushAllUnique;
 exports.append = append;
 exports.appendUnique = appendUnique;
+exports.prepend = prepend;
 exports.remove = remove;
 exports.fromString = fromString;
 exports.splitString = fromString;
@@ -258,3 +281,5 @@ exports.buildIndex = buildIndex;
 exports.buildIndexUnique = buildIndexUnique;
 exports.intersperse = intersperse;
 exports.ensure = ensure;
+exports.first = first;
+exports.last = last;
